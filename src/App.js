@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePage from "./pages/Home";
+import ProductsPage from "./pages/Products";
 
 // Every object in this array represents a route
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     // like <p><HomePage/></p>
     element: <HomePage />,
   },
+  { path: "/products", element: <ProductsPage /> },
 ]);
 
 function App() {
