@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+This web app requires React Router. Install the same with ``` npm install react-router-dom ```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
