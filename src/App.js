@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import HomePage from "./pages/Home";
 import ProductsPage from "./pages/Products";
+import RootLayout from "./pages/Root";
 
 // todo: OLD WAY TO DEFINE ROUTES
 // const routeDefinitions = createRoutesFromElements(
@@ -20,17 +21,26 @@ import ProductsPage from "./pages/Products";
 // Every object in this array represents a route
 const router = createBrowserRouter([
   {
-    // https://example.com/path
-    // path can also be nothing (/)
     path: "/",
-    // For dev server, it will be just localhost:3000 (http://localhost:3000/)
+    // * RootLayout acts as a parent/wrapper to the child routes
+    // We can also have path dependent layout wrappers
+    element: <RootLayout />,
+    children: [
+      {
+        // https://example.com/path
+        // path can also be nothing (/)
+        path: "/",
+        // For dev server, it will be just localhost:3000 (http://localhost:3000/)
 
-    // JSX code to be rendered is the element
-    // element may also contain other jsx code
-    // like <p><HomePage/></p>
-    element: <HomePage />,
+        // JSX code to be rendered is the element
+        // element may also contain other jsx code
+        // like <p><HomePage/></p>
+        element: <HomePage />,
+      },
+
+      { path: "/products", element: <ProductsPage /> },
+    ],
   },
-  { path: "/products", element: <ProductsPage /> },
 ]);
 
 function App() {
