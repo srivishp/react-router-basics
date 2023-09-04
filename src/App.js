@@ -7,6 +7,7 @@ import {
 import HomePage from "./pages/Home";
 import ProductsPage from "./pages/Products";
 import RootLayout from "./pages/Root";
+import ErrorPage from "./pages/Error";
 
 // todo: OLD WAY TO DEFINE ROUTES
 // const routeDefinitions = createRoutesFromElements(
@@ -25,6 +26,8 @@ const router = createBrowserRouter([
     // * RootLayout acts as a parent/wrapper to the child routes
     // We can also have path dependent layout wrappers
     element: <RootLayout />,
+    // errorElement is a prop used to define the element that should be loaded when the page throws an error
+    errorElement: <ErrorPage />,
     children: [
       {
         // https://example.com/path
@@ -37,7 +40,6 @@ const router = createBrowserRouter([
         // like <p><HomePage/></p>
         element: <HomePage />,
       },
-
       { path: "/products", element: <ProductsPage /> },
     ],
   },
