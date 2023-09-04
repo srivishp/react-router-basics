@@ -16,6 +16,7 @@
   color: var(--color-primary-400);
 }
 
+/* CSS for anchor tags */
 .list a:hover,
 .list a.active {
   color: var(--color-primary-800);
