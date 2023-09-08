@@ -8,6 +8,7 @@ import HomePage from "./pages/Home";
 import ProductsPage from "./pages/Products";
 import RootLayout from "./pages/Root";
 import ErrorPage from "./pages/Error";
+import ProductDetailsPage from "./pages/ProductDetails";
 
 // todo: OLD WAY TO DEFINE ROUTES
 // const routeDefinitions = createRoutesFromElements(
@@ -28,19 +29,26 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     // errorElement is a prop used to define the element that should be loaded when the page throws an error
     errorElement: <ErrorPage />,
+    // todo: Using relative paths below
+    // absolute paths start with /
     children: [
       {
         // https://example.com/path
         // path can also be nothing (/)
-        path: "/",
+        //path: "/",
         // For dev server, it will be just localhost:3000 (http://localhost:3000/)
 
+        // Setting <HomePage/> as the default route
+        index: true,
         // JSX code to be rendered is the element
         // element may also contain other jsx code
         // like <p><HomePage/></p>
         element: <HomePage />,
       },
-      { path: "/products", element: <ProductsPage /> },
+
+      { path: "products", element: <ProductsPage /> },
+      // * Dynamic Routing using :id as the path parameter
+      { path: "products/:productId", element: <ProductDetailsPage /> },
     ],
   },
 ]);
